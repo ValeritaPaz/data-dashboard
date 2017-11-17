@@ -4,6 +4,7 @@
 body {
 	margin: 0 auto;
 	background-color: #f7f7f7;
+	text-align: center;
 }
 
 header {
@@ -47,4 +48,17 @@ header {
 	padding-top: .5%;
 	border: 1px solid #fcbf00;
 	background: #fcbf00;
+}
+
+
+ /*formato primeros tres div*/
+.wrap {
+	background-color: #fff;
+	float: left;
+	width: 33%;
+}
+.wrap_1 {
+	background-color: #F8F7F6;
+	display: inline-block;
+
 }
