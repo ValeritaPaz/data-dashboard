@@ -4,7 +4,9 @@
 body {
 	margin: 0 auto;
 	background-color: #f7f7f7;
+	color: #2f2f2f;
 	text-align: center;
+	font-family: "FaktProSoft", "Helvetica Neue", helvetica, arial, sans-serif;
 }
 
 header {
@@ -12,16 +14,13 @@ header {
 }
 
 .logo {
-	width: 20%;
+	width: 15%;
 	height: 10%;
 }
 
-.div1 {
+.navegacion {
 	background-color: #e0e0e0;
-}
-
-.psede {
-	margin-left: 2em;
+	text-align: left;
 }
 
 .lista1 {
@@ -30,9 +29,14 @@ header {
 
 .lista1 li {
 	display: inline-block;
-	padding: 1em 2em;
+	border-bottom: .2em solid #fcbf00;
+	padding: .5em;
+    padding-top: 1.5em;
+    font-weight: bolder;
+    font-size: 1.2em;
+    color: #2f2f2f;
 }
-
+/*
 .contSedes {
 	width: 30%;
 	background-color: #fff;
@@ -48,6 +52,14 @@ header {
 	padding-top: .5%;
 	border: 1px solid #fcbf00;
 	background: #fcbf00;
+}*/
+#sedesLaboratoria {
+	border: none;
+	font-size: 2em;
+	margin-left: 1.5em;
+	padding-top: 1em;
+	font-weight: bolder;
+	color: #2f2f2f;
 }
 
 
@@ -61,4 +73,8 @@ header {
 	background-color: #F8F7F6;
 	display: inline-block;
 
+}
+
+p {
+	font-size: .7em;
 }
