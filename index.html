@@ -3,14 +3,32 @@
   <head>
     <meta charset="utf-8">
     <title>Data Dashboard</title>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
     <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
+    <header>
+      <img src="assets/images/logo-laboratoria.svg" class="logo">
+    </header>
+    <nav class="navegacion">
+      <h1 id="sede" class="psede" onclick="select()">Santiago de Chile</h1>
+      
+       <div>
+        <ul class="lista1">
+          <li>OVERVIEW</li>
+          <li>STUDENTS</li>
+          <li>TEACHERS</li>
+        </ul>
+      </div>
+    </nav>
+    
+		<!-- divs 3 primeros -->
     <div id="enrollment" class="wrap">
       
       <h2>ENROLLMENT</h2>
       <div class="container1">
-        <div class="numberActive wrap_1">
+        <div class="wrap_1">
           <h2 id="activos">120</h2>
           <p># STUDENTS CURRENTLY ENRROLLED</p>
         </div>
@@ -19,43 +37,64 @@
           <p>% DROPOUT</p>
         </div>
       </div>
-      <img src="assets/images/bar-graph.png">
-    
+      <div id="chart">
+        
+      </div>    
     </div>
 
-    <div id="enrollment" class="wrap">
+    <div id="achievement" class="wrap">
       
       <h2>ACHIEVEMENT</h2>
       <div class="container1">
-        <div class="numberActive wrap_1">
-          <h2 id="activos">120</h2>
-          <p># STUDENTS CURRENTLY ENRROLLED</p>
+        <div class="wrap_1">
+          <h2 id="target">105</h2>
+          <p># STUDENTS THAT MEET THE TARGET</p>
         </div>
-        <div class="percentageActive wrap_1">
-          <h2 id="inactivos">20%</h2>
-          <p>% DROPOUT</p>
+        <div class="wrap_1">
+          <h2 id="percentageTotal">78%</h2>
+          <p>% OF TOTAL</p>
         </div>
       </div>
       <img src="assets/images/bar-graph.png">
     
     </div>
 
-    <div id="enrollment" class="wrap">
+    <div id="promoter" class="wrap">
       
       <h2>NET PROMOTER SCORE</h2>
       <div class="container1">
-        <div class="numberActive wrap_1">
-          <h2 id="activos">120</h2>
+        <div class="wrap_1">
+          <h2 id="currently">78%</h2>
           <p># STUDENTS CURRENTLY ENRROLLED</p>
         </div>
-        <div class="percentageActive wrap_1">
-          <h2 id="inactivos">20%</h2>
-          <p>% DROPOUT</p>
+        <div class="wrap_1">
+          <p id="promoters">60% Promoters</p>
+          <p id="passive">30% Passive</p>
+          <p id="detractors">10% Detractors</p>
         </div>
       </div>
       <img src="assets/images/bar-graph.png">
     
     </div>
+    
+    <!-- 2do divs -->
+    <div class="container2">
+      <h2>TECH SKILLS</h2>
+      <div>
+        <div class="wrap_1">
+          <h3>90</h3>
+          <p># STUDENTS THAT MEET THE TARGET</p>
+        </div>
+        <div class="wrap_1">
+          <h3>62</h3>
+          <p>% OF TOTAL</p>
+        </div>
+      </div>
+      <div class="img">
+        <img src="assets/images/rectangular-graphic.png">
+        <img src="assets/images/circle-graphic.png">
+      </div>
+    </div>  
     <!-- jquery 
 		<script src="./js/jquery.min.js"></script>
   -->

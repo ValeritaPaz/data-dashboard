@@ -1,9 +1,55 @@
 /*
  * Estilos de tu proyecto
  */
- body {
- 	text-align: center;
- }
+body {
+	margin: 0 auto;
+	background-color: #f7f7f7;
+	text-align: center;
+}
+
+header {
+	text-align: center;
+}
+
+.logo {
+	width: 20%;
+	height: 10%;
+}
+
+.div1 {
+	background-color: #e0e0e0;
+}
+
+.psede {
+	margin-left: 2em;
+}
+
+.lista1 {
+	list-style: none;
+}
+
+.lista1 li {
+	display: inline-block;
+	padding: 1em 2em;
+}
+
+.contSedes {
+	width: 30%;
+	background-color: #fff;
+}
+
+.listaSedes {
+	list-style: none;
+	padding-left: 1em;
+	padding-right: 5em;
+}
+
+.estiloHr {
+	padding-top: .5%;
+	border: 1px solid #fcbf00;
+	background: #fcbf00;
+}
+
 
  /*formato primeros tres div*/
 .wrap {
@@ -14,5 +60,7 @@
 .wrap_1 {
 	background-color: #F8F7F6;
 	display: inline-block;
-
+}
+.container2 {
+	background-color: #fff;
 }
