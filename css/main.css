@@ -36,23 +36,7 @@ header {
     font-size: 1.2em;
     color: #2f2f2f;
 }
-/*
-.contSedes {
-	width: 30%;
-	background-color: #fff;
-}
 
-.listaSedes {
-	list-style: none;
-	padding-left: 1em;
-	padding-right: 5em;
-}
-
-.estiloHr {
-	padding-top: .5%;
-	border: 1px solid #fcbf00;
-	background: #fcbf00;
-}*/
 #sedesLaboratoria {
 	border: none;
 	font-size: 2em;
@@ -72,9 +56,9 @@ header {
 .wrap_1 {
 	background-color: #F8F7F6;
 	display: inline-block;
-
 }
 
-p {
-	font-size: .7em;
+.container2 {
+	background-color: #fff;
 }
+
