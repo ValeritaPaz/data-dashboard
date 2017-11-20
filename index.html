@@ -28,9 +28,9 @@
       
        <div>
         <ul class="lista1">
-          <li>OVERVIEW</li>
-          <li>STUDENTS</li>
-          <li>TEACHERS</li>
+          <li onclick="linea()" id="overview">OVERVIEW</li>
+          <li onclick="linea()" id="students">STUDENTS</li>
+          <li onclick="linea()" id="teachers">TEACHERS</li>
         </ul>
       </div>
     </nav>
@@ -44,17 +44,18 @@
           <!--<h2 id="activos"></h2>-->
         <div class="wrap_1">
           <h2 id="activos"></h2>
-          <p># STUDENTS CURRENTLY ENRROLLED</p>
+          <p class="textos"># STUDENTS CURRENTLY <br>ENRROLLED</p>
         </div>
         <div class="percentageActive wrap_1">
           <h2 id="inactivos"></h2>
-          <p>% DROPOUT</p>
+          <p class="textos">% DROPOUT</p>
         </div>
       </div>
       <div id="chart1">
         
       </div>    
-    </div>
+      </div>
+  </div>
 
     <div id="achievement" class="wrap">
       
@@ -62,11 +63,14 @@
       <div class="container1">
         <div class="wrap_1">
           <h2 id="target"></h2>
-          <p># STUDENTS THAT MEET THE TARGET</p>
+          <p class="textos"># STUDENTS THAT MEET <br>THE TARGET</p>
         </div>
         <div class="wrap_1">
           <h2 id="percentageTotal"></h2>
-          <p id="SprintTotal">% OF TOTAL</p>
+
+          <p id="SprintTotal" class="textos">% OF TOTAL</p>
+
+          
         </div>
       </div>
       <img src="assets/images/bar-graph.png">
@@ -78,13 +82,13 @@
       <h2>NET PROMOTER SCORE</h2>
       <div class="container1">
         <div class="wrap_1">
-          <h2 id="currently"></h2>
-          <p># STUDENTS CURRENTLY ENRROLLED</p>
+          <h2 id="currently">ddd</h2>
+          <p class="textos">% CUMULATIVE NPS</p>
         </div>
         <div class="wrap_1">
-          <p id="promoters"></p>
-          <p id="passive"></p>
-          <p id="detractors"></p>
+          <p class="textos" id="promoters">d</p>
+          <p class="textos" id="passive">x</p>
+          <p class="textos" id="detractors">s</p>
         </div>
       </div>
       <img src="assets/images/bar-graph.png">
@@ -97,11 +101,11 @@
       <div>
         <div class="wrap_1">
           <h3>90</h3>
-          <p># STUDENTS THAT MEET THE TARGET</p>
+          <p class="textos"># STUDENTS THAT MEET THE TARGET</p>
         </div>
         <div class="wrap_1">
           <h3>62</h3>
-          <p>% OF TOTAL</p>
+          <p class="textos">% OF TOTAL</p>
         </div>
       </div>
       <div class="img">

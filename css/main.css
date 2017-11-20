@@ -9,10 +9,6 @@ body {
 	font-family: "FaktProSoft", "Helvetica Neue", helvetica, arial, sans-serif;
 }
 
-header {
-	text-align: center;
-}
-
 .logo {
 	width: 15%;
 	height: 10%;
@@ -29,7 +25,7 @@ header {
 
 .lista1 li {
 	display: inline-block;
-	border-bottom: .2em solid #fcbf00;
+	/*border-bottom: .2em solid #fcbf00;*/
 	padding: .5em;
     padding-top: 1.5em;
     font-weight: bolder;
@@ -48,11 +44,17 @@ header {
 
 
  /*formato primeros tres div*/
+.textos {
+	font-size: .7em;
+}
+
 .wrap {
 	background-color: #fff;
 	float: left;
-	/*width: 30%;*/
+	width: 33%;
+	display: inline-block;
 }
+
 .wrap_1 {
 	background-color: #F8F7F6;
 	display: inline-block;
@@ -60,5 +62,9 @@ header {
 
 .container2 {
 	background-color: #fff;
+	clear: both;
+	float: left;
+	margin-top: 1em;
+	margin-left: 1em;
 }
 
