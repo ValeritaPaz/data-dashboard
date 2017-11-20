@@ -8,105 +8,90 @@ console.log(data);
 //calculando las activas e inactivas de scl 2017-2
 var students = data.SCL["2017-2"].students;
 var total = 0;
+var totalAct = 0;
+var totalInac = 0;
+
 	for (var i=0; i< students.length; i++) {
 		if(students[i].active === true){
-			total += students[i].active
+			//total += students[i].active;
+			totalAct++;
+		} else { 
+			//sumaPorcentaje = students.length - total;
+			totalInac++;
+			//var calculoPorcentaje = Math.round(sumaPorcentaje*100/students.length);
+			//var porcentaje = calculoPorcentaje + "%";
 		}
-		else { 
-			sumaPorcentaje = students.length - total;
-			var calculoPorcentaje = Math.round(sumaPorcentaje*100/students.length);
-			var porcentaje = calculoPorcentaje + "%";
-		}
+		total++;
 	}
+	console.log("TOTAL ACt"+totalAct+" TOTAL inactivos"+totalInac);
+var porcInactivo = Math.round((totalInac/total)*100);
 //asignando padres
 var activos = document.getElementById("activos");
-var textoActivos = document.createTextNode(total);
+var textoActivos = document.createTextNode(totalAct);
 activos.appendChild(textoActivos);
 
 var inactivos = document.getElementById("inactivos");
-var textoInactivos = document.createTextNode(porcentaje);
+var textoInactivos = document.createTextNode(porcInactivo+"%");
 inactivos.appendChild(textoInactivos);
 
 //calculando logro cumplido y superado
 var sprint1 = data.SCL["2017-2"].ratings[0].student.cumple + data.SCL["2017-2"].ratings[0].student.supera;
 var sprint2 = data.SCL["2017-2"].ratings[1].student.cumple + data.SCL["2017-2"].ratings[1].student.supera;
-var promedioSprints = Math.round((sprint1 + sprint2)/2);
-var calculoPorcentajeTotal = Math.round(promedioSprints*100/(students.length*2));
-var porcentajeTotal = calculoPorcentajeTotal + "%";
+
+var sprint1TotCumple = data.SCL["2017-2"].ratings[0].student.cumple;
+var sprint2TotCumple = data.SCL["2017-2"].ratings[1].student.cumple;
+var sprint1TotNoCumple = data.SCL["2017-2"].ratings[0].student['no-cumple'];
+var sprint2TotNoCumple = data.SCL["2017-2"].ratings[1].student['no-cumple'];
+var sprint1TotSupera = data.SCL["2017-2"].ratings[0].student.supera;
+var sprint2TotSupera = data.SCL["2017-2"].ratings[1].student.supera;
+
+var totalSprintCumple = sprint1TotCumple + sprint2TotCumple;
+var totalSprintNoCumple = sprint1TotNoCumple + sprint2TotNoCumple;
+var totalSprintSupera = sprint1TotCumple + sprint2TotCumple
+var promedioSprints = Math.round((sprint1TotSupera + sprint2TotSupera)/2);
+
+var totalSprint = totalSprintCumple+totalSprintNoCumple;
+
+var porcentajeSprint = Math.round((totalSprintCumple/totalSprint)*100) + "%";
+
+
 
 //asignando padres
 var target = document.getElementById("target");
-var textoTarget = document.createTextNode(promedioSprints);
+var textoTarget = document.createTextNode(totalSprintCumple);
 target.appendChild(textoTarget);
 
+
 var percentageTotal = document.getElementById("percentageTotal");
-var textoPercentageTotal = document.createTextNode(porcentajeTotal);
+var textoPercentageTotal = document.createTextNode(porcentajeSprint);
 percentageTotal.appendChild(textoPercentageTotal);
 
+var sprintTotal = document.getElementById("SprintTotal");
+var textoSprintTotal = document.createTextNode(" ("+totalSprint+")");
+sprintTotal.appendChild(textoSprintTotal);
 
-
+//primer grafico enrollment
 google.charts.load('current', {packages: ['corechart', 'bar']});
-google.charts.setOnLoadCallback(drawAxisTickColors);
+google.charts.setOnLoadCallback(drawMultSeries);
 
-function drawAxisTickColors() {
-      var data = new google.visualization.DataTable();
-      data.addColumn('timeofday', 'Time of Day');
-      data.addColumn('number', 'Motivation Level');
-      data.addColumn('number', 'Energy Level');
-
-      data.addRows([
-        [{v: [8, 0, 0], f: '8 am'}, 1, .25],
-        [{v: [9, 0, 0], f: '9 am'}, 2, .5],
-        [{v: [10, 0, 0], f:'10 am'}, 3, 1],
-        [{v: [11, 0, 0], f: '11 am'}, 4, 2.25],
-        [{v: [12, 0, 0], f: '12 pm'}, 5, 2.25],
-        [{v: [13, 0, 0], f: '1 pm'}, 6, 3],
-        [{v: [14, 0, 0], f: '2 pm'}, 7, 4],
-        [{v: [15, 0, 0], f: '3 pm'}, 8, 5.25],
-        [{v: [16, 0, 0], f: '4 pm'}, 9, 7.5],
-        [{v: [17, 0, 0], f: '5 pm'}, 10, 10],
-      ]);
+function drawMultSeries() {
+      var data = google.visualization.arrayToDataTable([
+        ['ENROLLMENT', 'ENRROLLED', 'DROPOUT'],
+        ['SCL - 2017-2', totalAct, totalInac]
+       ]);
 
       var options = {
-        title: 'Motivation and Energy Level Throughout the Day',
-        focusTarget: 'category',
+        title: 'ENROLLMENT - DROPOUT',
+        chartArea: {width: '50%'},
         hAxis: {
-          title: 'Time of Day',
-          format: 'h:mm a',
-          viewWindow: {
-            min: [7, 30, 0],
-            max: [17, 30, 0]
-          },
-          textStyle: {
-            fontSize: 14,
-            color: '#053061',
-            bold: true,
-            italic: false
-          },
-          titleTextStyle: {
-            fontSize: 18,
-            color: '#053061',
-            bold: true,
-            italic: false
-          }
+          title: 'Total '+total,
+          minValue: 0
         },
         vAxis: {
-          title: 'Rating (scale of 1-10)',
-          textStyle: {
-            fontSize: 18,
-            color: '#67001f',
-            bold: false,
-            italic: false
-          },
-          titleTextStyle: {
-            fontSize: 18,
-            color: '#67001f',
-            bold: true,
-            italic: false
-          }
+          title: '# STUDENTS'
         }
       };
 
-      var chart = new google.visualization.ColumnChart(document.getElementById('chart'));
+      var chart = new google.visualization.ColumnChart(document.getElementById('chart1'));
       chart.draw(data, options);
     }
