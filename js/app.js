@@ -169,6 +169,26 @@ var textoCurrently = document.createTextNode(nps);
 currently.appendChild(textoCurrently);
 currently.style.color = "#39bd14";
 
+//3er grafico promoter score
+google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Sprint', 'Promoters', 'Passive', 'Detractors'],
+          ['S1',  promoterS1,      passiveS1,	detractorS1],
+          ['S2',  promoterS2,      passiveS2,	detractorS2]
+        ]);
+
+        var options = {
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('chart3'));
+
+        chart.draw(data, options);
+      }
 
 //calculando tech skills
 /*var beatTechScore = 0;
