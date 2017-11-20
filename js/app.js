@@ -137,11 +137,6 @@ function drawMultSeries() {
     }
 
 //calculanto Nps
-/*
-[Promoters] = [Respuestas 9 o 10] / [Total respuestas] * 100
-[Passive] = [Respuestas 7 u 8] / [Total respuestas] * 100
-[Detractors] = [Respuestas entre 1 y 6] / [Total respuestas] * 100
-*/
 var promoterS1 = data.SCL["2017-2"].ratings[0].nps.promoters;
 var promoterS2 = data.SCL["2017-2"].ratings[1].nps.promoters;
 var totalPromoters = (promoterS1 + promoterS2) / 2;
@@ -174,7 +169,55 @@ var textoCurrently = document.createTextNode(nps);
 currently.appendChild(textoCurrently);
 currently.style.color = "#39bd14";
 
-//[NPS] = [Promoters] - [Detractors]
+
+//calculando tech skills
+/*var beatTechScore = 0;
+for (var i = 0; i < students.length; i++) {
+  var scoreTech = students[i].sprints[i];
+  console.log(scoreTech);
+  for (var j = 0; j < scoreTech.length; j++) {
+    if(scoreTech[j].score.tech >= 1260) {
+      beatTechScore++;
+      console.log(beatTechScore);
+    }
+  }
+}.forEach( function ( m ) {
+
+  for ( var key in m ) {
+
+    console.log( key ); // "who"
+    console.log( m[key] ); // "Arthur"
+
+  }
+  */
 
 
+students[i].sprints[i].forEach( function ( m ) {
 
+  for ( var key in m ) {
+
+    console.log( key ); // "who"
+    console.log( m[key] ); // "Arthur"
+
+  }
+
+});
+
+
+//data.SCL["2017-2"].students.filter((student)=>{return student.sprints})
+
+ /* function filtroScore (obj) {
+    if("score.tech" in obj >= 1260) {
+      beatTechScore ++;
+    }
+  }
+var toFilter = students[i].filter(filtroScore);
+console.log(toFilter);
+}
+
+/*function techScore(valor) {
+  return valor >=1260;
+}*/
+
+
+students.sprints[0].score.tech
