@@ -92,9 +92,6 @@ var totalSprint = totalSprintCumple+totalSprintNoCumple;
 
 var porcentajeSprint = Math.round((totalSprintCumple/totalSprint)*100) + "%";
 
-
-
-
 //asignando padres
 var target = document.getElementById("target");
 var textoTarget = document.createTextNode(totalSprintCumple);
@@ -110,31 +107,7 @@ var sprintTotal = document.getElementById("SprintTotal");
 var textoSprintTotal = document.createTextNode(" ("+totalSprint+")");
 sprintTotal.appendChild(textoSprintTotal);
 
-//primer grafico enrollment
-google.charts.load('current', {packages: ['corechart', 'bar']});
-google.charts.setOnLoadCallback(drawMultSeries);
 
-function drawMultSeries() {
-      var data = google.visualization.arrayToDataTable([
-        ['ENROLLMENT', 'ENRROLLED', 'DROPOUT'],
-        ['SCL - 2017-2', totalAct, totalInac]
-       ]);
-
-      var options = {
-        title: 'ENROLLMENT - DROPOUT',
-        chartArea: {width: '50%'},
-        hAxis: {
-          title: 'Total '+total,
-          minValue: 0
-        },
-        vAxis: {
-          title: '# STUDENTS'
-        }
-      };
-
-      var chart = new google.visualization.ColumnChart(document.getElementById('chart1'));
-      chart.draw(data, options);
-    }
 
 //calculanto Nps
 var promoterS1 = data.SCL["2017-2"].ratings[0].nps.promoters;
@@ -169,75 +142,24 @@ var textoCurrently = document.createTextNode(nps);
 currently.appendChild(textoCurrently);
 currently.style.color = "#39bd14";
 
-//3er grafico promoter score
-google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
 
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Sprint', 'Promoters', 'Passive', 'Detractors'],
-          ['S1',  promoterS1,      passiveS1,	detractorS1],
-          ['S2',  promoterS2,      passiveS2,	detractorS2]
-        ]);
-
-        var options = {
-          curveType: 'function',
-          legend: { position: 'bottom' }
-        };
-
-        var chart = new google.visualization.LineChart(document.getElementById('chart3'));
-
-        chart.draw(data, options);
-      }
 
 //calculando tech skills
-/*var beatTechScore = 0;
+var beatTechScore = 0;
 for (var i = 0; i < students.length; i++) {
-  var scoreTech = students[i].sprints[i];
+  var scoreTech = students[i].sprints;
   console.log(scoreTech);
-  for (var j = 0; j < scoreTech.length; j++) {
-    if(scoreTech[j].score.tech >= 1260) {
+  for(var j=0; j<scoreTech.length; j++) {
+    if (scoreTech[j].score.tech >=1260) {
       beatTechScore++;
       console.log(beatTechScore);
     }
   }
-}.forEach( function ( m ) {
-
-  for ( var key in m ) {
-
-    console.log( key ); // "who"
-    console.log( m[key] ); // "Arthur"
-
-  }
-  */
+}
 
 
-students[i].sprints[i].forEach( function ( m ) {
 
-  for ( var key in m ) {
 
-    console.log( key ); // "who"
-    console.log( m[key] ); // "Arthur"
-
-  }
-
-});
 
 
 //data.SCL["2017-2"].students.filter((student)=>{return student.sprints})
-
- /* function filtroScore (obj) {
-    if("score.tech" in obj >= 1260) {
-      beatTechScore ++;
-    }
-  }
-var toFilter = students[i].filter(filtroScore);
-console.log(toFilter);
-}
-
-/*function techScore(valor) {
-  return valor >=1260;
-}*/
-
-
-students.sprints[0].score.tech
