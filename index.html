@@ -28,9 +28,9 @@
       
        <div>
         <ul class="lista1">
-          <li onclick="linea()" id="overview">OVERVIEW</li>
-          <li onclick="linea()" id="students">STUDENTS</li>
-          <li onclick="linea()" id="teachers">TEACHERS</li>
+          <li id="overview" class="noLinea" onclick="linea()">OVERVIEW</li>
+          <li id="students" class="noLinea" onclick="linea2()">STUDENTS</li>
+          <li id="teachers" class="noLinea" onclick="linea3()">TEACHERS</li>
         </ul>
       </div>
     </nav>
@@ -43,17 +43,15 @@
         <div class="numberActive wrap_1">
           <!--<h2 id="activos"></h2>-->
         <div class="wrap_1">
-          <h2 id="activos"></h2>
+          <h3 id="activos"></h3>
           <p class="textos"># STUDENTS CURRENTLY <br>ENRROLLED</p>
         </div>
         <div class="percentageActive wrap_1">
-          <h2 id="inactivos"></h2>
+          <h3 id="inactivos"></h3>
           <p class="textos">% DROPOUT</p>
         </div>
       </div>
-      <div id="chart1">
-        
-      </div>    
+      <div id="chart1"></div>    
       </div>
   </div>
 
@@ -62,11 +60,11 @@
       <h2>ACHIEVEMENT</h2>
       <div class="container1">
         <div class="wrap_1">
-          <h2 id="target"></h2>
+          <h3 id="target"></h3>
           <p class="textos"># STUDENTS THAT MEET <br>THE TARGET</p>
         </div>
         <div class="wrap_1">
-          <h2 id="percentageTotal"></h2>
+          <h3 id="percentageTotal"></h3>
 
           <p id="SprintTotal" class="textos">% OF TOTAL</p>
 
@@ -82,13 +80,13 @@
       <h2>NET PROMOTER SCORE</h2>
       <div class="container1">
         <div class="wrap_1">
-          <h2 id="currently">ddd</h2>
+          <h3 id="currently"></h3>
           <p class="textos">% CUMULATIVE NPS</p>
         </div>
         <div class="wrap_1">
-          <p class="textos" id="promoters">d</p>
-          <p class="textos" id="passive">x</p>
-          <p class="textos" id="detractors">s</p>
+          <p class="textos" id="promoters"></p>
+          <p class="textos" id="passive"></p>
+          <p class="textos" id="detractors"></p>
         </div>
       </div>
       <img src="assets/images/bar-graph.png">

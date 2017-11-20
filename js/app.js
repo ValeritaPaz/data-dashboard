@@ -4,6 +4,42 @@
 // Puedes hacer uso de la base de datos a través de la variable `data`
 console.log(data);
 //console.log(data['AQP'].length);
+function linea() {
+  var oV = document.getElementById("overview");
+  if (oV.classList.contains("lineaAmarilla")){
+    oV.classList.remove("lineaAmarilla");
+    oV.classList.add("noLinea");
+  }
+  else {
+    oV.classList.remove("noLinea");
+    oV.classList.add("lineaAmarilla");
+  }
+
+}
+
+function linea2() {
+  var stds = document.getElementById("students");
+  if (stds.classList.contains("lineaAmarilla")){
+    stds.classList.remove("lineaAmarilla");
+    stds.classList.add("noLinea");
+  }
+  else {
+    stds.classList.remove("noLinea");
+    stds.classList.add("lineaAmarilla");
+  } 
+}
+
+function linea3() {
+  var teachers = document.getElementById("teachers");
+  if (teachers.classList.contains("lineaAmarilla")){
+    teachers.classList.remove("lineaAmarilla");
+    teachers.classList.add("noLinea");
+  }
+  else {
+    teachers.classList.remove("noLinea");
+    teachers.classList.add("lineaAmarilla");
+  }  
+}
 
 //calculando las activas e inactivas de scl 2017-2
 var students = data.SCL["2017-2"].students;
@@ -23,8 +59,9 @@ var totalInac = 0;
 		}
 		total++;
 	}
-	console.log("TOTAL ACt"+totalAct+" TOTAL inactivos"+totalInac);
+	//console.log("TOTAL ACt"+totalAct+" TOTAL inactivos"+totalInac);
 var porcInactivo = Math.round((totalInac/total)*100);
+
 //asignando padres
 var activos = document.getElementById("activos");
 var textoActivos = document.createTextNode(totalAct);
@@ -33,6 +70,7 @@ activos.appendChild(textoActivos);
 var inactivos = document.getElementById("inactivos");
 var textoInactivos = document.createTextNode(porcInactivo+"%");
 inactivos.appendChild(textoInactivos);
+inactivos.style.color = "#fc3348";
 
 //calculando logro cumplido y superado
 var sprint1 = data.SCL["2017-2"].ratings[0].student.cumple + data.SCL["2017-2"].ratings[0].student.supera;
@@ -56,6 +94,7 @@ var porcentajeSprint = Math.round((totalSprintCumple/totalSprint)*100) + "%";
 
 
 
+
 //asignando padres
 var target = document.getElementById("target");
 var textoTarget = document.createTextNode(totalSprintCumple);
@@ -65,6 +104,7 @@ target.appendChild(textoTarget);
 var percentageTotal = document.getElementById("percentageTotal");
 var textoPercentageTotal = document.createTextNode(porcentajeSprint);
 percentageTotal.appendChild(textoPercentageTotal);
+percentageTotal.style.color = "#39bd14";
 
 var sprintTotal = document.getElementById("SprintTotal");
 var textoSprintTotal = document.createTextNode(" ("+totalSprint+")");
@@ -95,3 +135,46 @@ function drawMultSeries() {
       var chart = new google.visualization.ColumnChart(document.getElementById('chart1'));
       chart.draw(data, options);
     }
+
+//calculanto Nps
+/*
+[Promoters] = [Respuestas 9 o 10] / [Total respuestas] * 100
+[Passive] = [Respuestas 7 u 8] / [Total respuestas] * 100
+[Detractors] = [Respuestas entre 1 y 6] / [Total respuestas] * 100
+*/
+var promoterS1 = data.SCL["2017-2"].ratings[0].nps.promoters;
+var promoterS2 = data.SCL["2017-2"].ratings[1].nps.promoters;
+var totalPromoters = (promoterS1 + promoterS2) / 2;
+var passiveS1 = data.SCL["2017-2"].ratings[0].nps.passive;
+var passiveS2 = data.SCL["2017-2"].ratings[1].nps.passive;
+var totalPassives = (passiveS1 + passiveS2) / 2; 
+var detractorS1 = data.SCL["2017-2"].ratings[0].nps.detractors;
+var detractorS2 = data.SCL["2017-2"].ratings[1].nps.detractors;
+var totalDetractors = (detractorS1 + detractorS2) / 2;
+var totalNpS = totalPromoters + totalPassives + totalDetractors;
+
+var promoPercent = Math.round(totalPromoters / totalNpS * 100)
+var promoters = document.getElementById("promoters");
+var textoPromoters = document.createTextNode(promoPercent + "%" + " Promoters");
+promoters.appendChild(textoPromoters);
+
+var passPercent = Math.round(totalPassives / totalNpS * 100);
+var passive = document.getElementById("passive");
+var textoPassive = document.createTextNode(passPercent + "%" + " Passive");
+passive.appendChild(textoPassive);
+
+var detractPercent = Math.round(totalDetractors / totalNpS * 100);
+var detractors = document.getElementById("detractors");
+var textoDetractors = document.createTextNode(detractPercent + "%" + " Detractors");
+detractors.appendChild(textoDetractors);
+
+var nps = (promoPercent - detractPercent) + "%";
+var currently = document.getElementById("currently");
+var textoCurrently = document.createTextNode(nps);
+currently.appendChild(textoCurrently);
+currently.style.color = "#39bd14";
+
+//[NPS] = [Promoters] - [Detractors]
+
+
+

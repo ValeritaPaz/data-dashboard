@@ -25,12 +25,18 @@ body {
 
 .lista1 li {
 	display: inline-block;
-	/*border-bottom: .2em solid #fcbf00;*/
 	padding: .5em;
     padding-top: 1.5em;
     font-weight: bolder;
     font-size: 1.2em;
     color: #2f2f2f;
+}
+.lineaAmarilla {
+	border-bottom: .2em solid #fcbf00;
+}
+
+.noLinea {
+	border-bottom: none;
 }
 
 #sedesLaboratoria {
@@ -49,15 +55,19 @@ body {
 }
 
 .wrap {
-	background-color: #fff;
 	float: left;
 	width: 33%;
 	display: inline-block;
+	margin-left: .2em;
 }
 
 .wrap_1 {
 	background-color: #F8F7F6;
 	display: inline-block;
+}
+
+#enrollment , #achievement, #promoter {
+	background: #fff;
 }
 
 .container2 {
