@@ -47,3 +47,31 @@ google.charts.load('current', {'packages':['corechart']});
       }
 
 // grafico satisfaction
+google.charts.load('current', {packages: ['corechart', 'bar']});
+google.charts.setOnLoadCallback(drawBasic);
+
+function drawBasic() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['City', 'TOTAL',],
+        ['FAILS', totalSprintNoCumple],
+        ['MEETING', totalSprintCumple],
+        ['EXCEEDING', totalSprintSupera],
+
+      ]);
+
+      var options = {
+        chartArea: {width: '65%'},
+        hAxis: {
+          title: '# Students',
+          minValue: 0
+        },
+        vAxis: {
+          title: 'Satisfaction'
+        }
+      };
+
+      var chart = new google.visualization.BarChart(document.getElementById('chart'));
+
+      chart.draw(data, options);
+    }
