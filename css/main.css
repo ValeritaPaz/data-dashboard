@@ -80,7 +80,9 @@ a {
 .textos {
 	font-size: .7em;
 }
-
+#percentageTotal {
+	color: #39bd14;
+}
 .contenedor1 {
 	overflow: hidden;
 	clear: both;
