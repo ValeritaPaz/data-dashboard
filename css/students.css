@@ -12,7 +12,8 @@
 	background-color: #fff;
 	display: inline-block;
 	margin-top: 2em;
-	padding: .5em  50em .5em 0;
+	margin-bottom: 2em;
+	padding: .5em  49.5em .5em 0;
 	float: left;
 	margin-left: 5em;
 	border-radius: 5px solid gray;
@@ -23,10 +24,42 @@
 	color: gray;
 }
 
-.student_lab {
+#student_lab {
 	background-color: #fff;
-	margin-top: 3em;
 	display: inline-block;
-	padding: 2em  45em 2em 0;
+	padding: 1em  27em 1em 0;
+    padding-right: 0px;
 
+}
+
+.photoStudent {
+	width: 15%;
+	margin-left: 1em;
+}
+
+.skills {
+	float: right;
+}
+
+.uppercase {
+	text-transform: uppercase;
+	display: inline-block;
+	vertical-align: top;
+	text-align: left;
+	margin-left: 1em;
+}
+
+.mention {
+	font-size: .8em;
+	font-weight: lighter;
+	text-transform: capitalize;
+	text-align: left;
+}
+
+.specialties {
+	background-color: #e0e0e0;
+	display: inline-block;
+	padding: .5em;
+	margin: 1em;
+	margin-left: 0;
 }

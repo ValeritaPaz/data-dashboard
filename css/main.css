@@ -34,6 +34,13 @@ a {
 	height: 10%;
 }
 
+.fa-bars, .fa-times {
+	float: right;
+	margin-right: 1em;
+	margin-top: .5em;
+	font-size: 2em;
+}
+
 .navegacion {
 	background-color: #e0e0e0;
 	text-align: left;
