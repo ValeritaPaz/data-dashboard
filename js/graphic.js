@@ -45,3 +45,5 @@ google.charts.load('current', {'packages':['corechart']});
 
         chart.draw(data, options);
       }
+
+//2do grafico achievement
