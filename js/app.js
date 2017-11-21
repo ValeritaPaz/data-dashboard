@@ -72,7 +72,7 @@ var textoInactivos = document.createTextNode(porcInactivo+"%");
 inactivos.appendChild(textoInactivos);
 inactivos.style.color = "#fc3348";
 
-//calculando logro cumplido y superado
+//calculando satisfaccion estudiante
 var sprint1 = data.SCL["2017-2"].ratings[0].student.cumple + data.SCL["2017-2"].ratings[0].student.supera;
 var sprint2 = data.SCL["2017-2"].ratings[1].student.cumple + data.SCL["2017-2"].ratings[1].student.supera;
 
@@ -93,17 +93,17 @@ var totalSprint = totalSprintCumple+totalSprintNoCumple;
 var porcentajeSprint = Math.round((totalSprintCumple/totalSprint)*100) + "%";
 
 //asignando padres
-var target = document.getElementById("target");
-var textoTarget = document.createTextNode(totalSprintCumple);
-target.appendChild(textoTarget);
+var satisf = document.getElementById("satisfaccion");
+var textoSatisf = document.createTextNode(totalSprintCumple);
+satisf.appendChild(textoSatisf);
 
 
-var percentageTotal = document.getElementById("percentageTotal");
+var percentageTotal = document.getElementById("percentageSatisf");
 var textoPercentageTotal = document.createTextNode(porcentajeSprint);
 percentageTotal.appendChild(textoPercentageTotal);
 percentageTotal.style.color = "#39bd14";
 
-var sprintTotal = document.getElementById("SprintTotal");
+var sprintTotal = document.getElementById("SprintSatsf");
 var textoSprintTotal = document.createTextNode(" ("+totalSprint+")");
 sprintTotal.appendChild(textoSprintTotal);
 

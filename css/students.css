@@ -1,0 +1,32 @@
+.specialization {
+	background-color: #fff;
+	display: inline-block;
+	text-align: left;
+	float: left;
+	margin-left: 3em;
+	margin-top: 2em;
+	padding: .5em 3em .5em .5em;
+}
+
+.search {
+	background-color: #fff;
+	display: inline-block;
+	margin-top: 2em;
+	padding: .5em  50em .5em 0;
+	float: left;
+	margin-left: 5em;
+	border-radius: 5px solid gray;
+}
+
+.search i {
+	margin-left: .5em;
+	color: gray;
+}
+
+.student_lab {
+	background-color: #fff;
+	margin-top: 3em;
+	display: inline-block;
+	padding: 2em  45em 2em 0;
+
+}
